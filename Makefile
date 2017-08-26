@@ -1,6 +1,6 @@
 
 
-VERSION=$(shell git describe | sed -e 's/-/\./' | cut -d- -f1)
+VERSION=$(shell ruby -r './lib/bolt/version' -e "puts Bolt::VERSION")
 TARGET=bolt
 TMPDIR=`mktemp -d`
 PLATFORM=`uname`
@@ -12,7 +12,7 @@ DISTRO=(shell)
 all: $(TARGET)
 
 $(TARGET):
-	rubyc -d $(TMPDIR) -o $(TARGET) -c --auto-update-url=http://updates.puppetlabs.com/$(TARGET)/$(PLATFORM) --auto-update-base=$(VERSION) exe/$(TARGET)
+	rubyc -d $(TMPDIR) -o $(TARGET) -c --auto-update-url=http://updates.puppet.com/$(TARGET)/$(PLATFORM) --auto-update-base=$(VERSION)  exe/$(TARGET)
 
 clean:
 	rm -rf $(TARGET)-* /tmp/rubyc ~/.libautoupdate $(TARGET)
