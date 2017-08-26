@@ -3,9 +3,7 @@
 VERSION=$(shell ruby -r './lib/bolt/version' -e "puts Bolt::VERSION")
 TARGET=bolt
 TMPDIR=`mktemp -d`
-PLATFORM=`uname | awk '{print tolower($$0)}'`
-
-DISTRO=(shell)
+PLATFORM=$(shell uname | awk '{print tolower($$0)}')
 
 #TODO make this work on Windows
 
