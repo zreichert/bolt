@@ -20,6 +20,7 @@ gem "beaker-hostgenerator",
     *location_for(ENV['BEAKER_HOSTGENERATOR_VERSION'] || "~> 0.3")
 gem 'rake', "~> 10.1.0"
 gem 'rototiller'
+gem 'pry'
 
 if File.exist? "Gemfile.local"
   eval_gemfile "Gemfile.local"
